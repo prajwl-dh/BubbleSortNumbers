@@ -17,8 +17,10 @@ void userInput(int Array[], int n);
 int sizeOfArray(void);
 
 //beginning of main
-int main(int argc, const char * argv[]) {
+int main(int argc, const char * argv[])
+{
     
+    //declaring some important variables
     int choice = 0;
     int arraySizeAsc = 0;
     int arraySizeDsc = 0;
@@ -26,6 +28,7 @@ int main(int argc, const char * argv[]) {
     //beginning of while infinite loop
     while (1)
     {
+        
         //User Choice Selection Part
         printf("*********************************************\n");
         printf("         Welcome to Bubble Sorting           \n");
@@ -42,6 +45,7 @@ int main(int argc, const char * argv[]) {
         switch (choice) {
             case 1:
             {
+                //Ascending Order Part
                 arraySizeAsc= sizeOfArray();
                 int ArrayAsc[arraySizeAsc];
                 userInput(ArrayAsc, arraySizeAsc);
@@ -57,6 +61,7 @@ int main(int argc, const char * argv[]) {
                 
             case 2:
             {
+                //Descending Order Part
                 arraySizeDsc= sizeOfArray();
                 int ArrayDsc[arraySizeDsc];
                 userInput(ArrayDsc, arraySizeDsc);
@@ -72,6 +77,7 @@ int main(int argc, const char * argv[]) {
                 
             case 3:
             {
+                //Exit the program
                 printf("\nThanks for using the program.\n");
                 printf("Program closed successfully.\n");
                 return EXIT_SUCCESS;
@@ -79,6 +85,7 @@ int main(int argc, const char * argv[]) {
                 
             default:
             {
+                //Error Checking for user input
                 printf("\nYou entered a wrong option.\n");
                 printf("Please try again.\n");
                 break;
@@ -97,13 +104,13 @@ int main(int argc, const char * argv[]) {
 int sizeOfArray(void)
 {
     int arraySize = 0;
-    printf("Please enter the size of the array: ");
+    printf("!!!You can enter only positive numbers!!!\n");
+    printf("Please enter the quantity of numbers: ");
     scanf(" %d", &arraySize);
     printf("Enter %d numbers followed by a space after each numbers: \n", arraySize);
     return arraySize;
 }
 //end of array size function
-
 
 
 //begin of arrayinput function
@@ -125,7 +132,7 @@ void bubble_sortAsc(int Array[], int n)
     //declaring necessary variables
     int i=0;
     int j=0;
-    int swapArray=0;
+    int swapArrayAsc=0;
 
     //for-looping for the size of array
     for (i = 0; i <=n-2; i++)
@@ -136,9 +143,9 @@ void bubble_sortAsc(int Array[], int n)
             if (Array[j] > Array[j+1])
             {
                 //Swap the contents of array
-                swapArray = Array[j];
+                swapArrayAsc = Array[j];
                 Array[j] = Array[j+1];
-                Array[j+1] = swapArray;
+                Array[j+1] = swapArrayAsc;
             }
             
         }//end nested loop
@@ -154,7 +161,7 @@ void bubble_sortDsc(int Array[], int n)
     //declaring necessary variables
     int i=0;
     int j=0;
-    int swapArray=0;
+    int swapArrayDsc=0;
 
     //for-looping for the size of array
     for (i = 0; i <=n-2; i++)
@@ -165,9 +172,9 @@ void bubble_sortDsc(int Array[], int n)
             if (Array[j] < Array[j+1])
             {
                 //Swap the contents of array
-                swapArray = Array[j];
+                swapArrayDsc = Array[j];
                 Array[j] = Array[j+1];
-                Array[j+1] = swapArray;
+                Array[j+1] = swapArrayDsc;
             }
             
         }//end nested loop
